@@ -23,17 +23,13 @@ namespace View
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// добавление фигур
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddFigyre_Click(object sender, EventArgs e)
         {
-            //string[] row1 = new string[] { TextAdd.Text};
-            //ListFigyre.Items.Add(TextAdd.Text);
-            /*object[] rows = new object[] { row1};
-            foreach (string[] rowArray in rows)
-            {
-                Grid.Rows.Add(rowArray);
-            }*/
-            //TextAdd.Clear();
             AddObject AddFigure = new AddObject();
             AddFigure.Delegate=this;
 
@@ -46,11 +42,14 @@ namespace View
                 }
                 
             };
-            //AddFigure.Show();
             AddFigure.ShowDialog();
             
         }
-
+        /// <summary>
+        /// удаление строки в таблице
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveFigyre_Click(object sender, EventArgs e)
         {
             if (Grid.CurrentRow != null)
@@ -63,12 +62,19 @@ namespace View
                 catch (System.InvalidOperationException)  { }
             }
         }
-
+        /// <summary>
+        /// передача делегата
+        /// </summary>
+        /// <param name="figure"></param>
         public void DidFinish(IValumeFigyre figure)
         {
             _figyre = figure;
         }
-
+        /// <summary>
+        /// создание в таблице делсяти случайных фигур и объемов к ним
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Random_Click(object sender, EventArgs e)
         {
 #if DEBUG
@@ -110,7 +116,11 @@ namespace View
             }
 #endif
         }
-
+        /// <summary>
+        /// сохранить данные таблицы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Save_Click(object sender, EventArgs e)
         {
             try
@@ -137,7 +147,11 @@ namespace View
                 MessageBox.Show("Unable to save file Vol", "Error");
             }
         }
-
+        /// <summary>
+        /// открыть сохранения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Open_Click(object sender, EventArgs e)
         {
             
@@ -155,7 +169,11 @@ namespace View
                     }
             }
         }
-
+        /// <summary>
+        /// очистить таблицу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Clear_Click(object sender, EventArgs e)
         {
             if (Grid.Rows.Count > 0)
