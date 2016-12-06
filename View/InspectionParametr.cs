@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace View
 {
+    /// <summary>
+    /// проверка на ввходные данные и вывод ошибки
+    /// </summary>
     public class InspectionParametr
     {
         public static double Parametr(string edit, string editDesc)
